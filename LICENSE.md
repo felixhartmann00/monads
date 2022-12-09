@@ -1,1 +1,1 @@
-Dont use my shit. Its garbage.
+Dont use my shit. Its garbage anyway.
