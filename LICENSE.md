@@ -1,1 +1,1 @@
-Dont use my shit. Its garbage anyway.
+Do not use my code. It is garbage anyway.
