@@ -44,21 +44,6 @@ let addOne i =
     { something = result ; logs = log }
 
 
-let concatination s1 s2 =
-    let result = s1 + " " + s2
-
-    let log = [$"string {s1} and {s2} have been modified to {result}"]
-
-    { something = result ; logs = log }
-
-let appendGreeting s =
-    let result = s + " weclome to F#"
-
-    let log = [$"string {s} has been modified to {result}"]
-
-    { something = result ; logs = log }
-
-
 // runner (bind operation)
 let runWithLogs transform tLogged =
     // and a function f with signature 'a' -> 'm b'
@@ -81,17 +66,9 @@ let printWithLogs (t: TWithLogs<'T>) =
 let addOneWithLogs = runWithLogs addOne
 let squareWithLogs = runWithLogs square
 
-let concatfn = concatination "hello"
-let concatWithLogs = runWithLogs concatfn
-let appendWithLogs = runWithLogs appendGreeting
-
 
 createFromT 10
 |> addOneWithLogs
 |> squareWithLogs
 |> printWithLogs
 
-createFromT "world"
-|> concatWithLogs
-|> appendWithLogs
-|> printWithLogs
