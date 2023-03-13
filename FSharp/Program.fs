@@ -19,7 +19,7 @@ module SomethingLogged =
     
     // type contructor (unit operation)
     let createFromT<'T> (something: 'T)=
-        // revieves value 'a'
+        // recieves value 'a'
         // wraps it into a monadic value of type 'm a'
         // in this case TWithLogs<'T>
         { something = something ; logs = [] }
@@ -61,8 +61,8 @@ let appendGreeting s =
 
 // runner (bind operation)
 let runWithLogs transform tLogged =
-    // recieves monadic value of type 'm a'
     // and a function f with signature 'a' -> 'm b'
+    // recieves monadic value of type 'm a'
 
     let newThingWithLog = transform tLogged.something
     
