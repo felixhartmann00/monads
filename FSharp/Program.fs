@@ -1,5 +1,5 @@
 ﻿(*
-    monads consist of three main features:
+    this monads consist of three main features:
         the monadic type
             a wrapper around a value
         the unit operation
@@ -23,7 +23,12 @@ module Monad =
         // wraps it into a monadic value of type 'm a'
         // in this case TWithLogs<'T>
         { value = value ; logs = [] }
-    
+
+    (*
+        use of this monad is to extract the log combining function (runWithLogs)
+        and still being able to chain functions with the pipe operator
+    *)
+
     // runner (bind operation)
     let runWithLogs transform tLogged =
         // and a function f with signature 'a' -> 'm b'
@@ -65,7 +70,7 @@ let subtractOne i =
 
 
 
-let printWithLogs (t: TWithLogs<'T>) =
+let print (t: TWithLogs<'T>) =
     t.logs |> List.iter (printfn "%s")
     printfn "%A \n" t.value
 
@@ -79,5 +84,5 @@ createFromT 10
 |> addOneWithLogs
 |> squareWithLogs
 |> subtractOneWithLogs
-|> printWithLogs
+|> print
 
